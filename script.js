@@ -1,33 +1,41 @@
-function hours(){
-    var Time = new Date()
-    var hour = Time.getHours()
-    var minuts = Time.getMinutes()
-    var secunds = Time.getSeconds()
+var seconds = 0
+var minuts = 0
+var hour = 0
 
-    var hours = `${hour}:${minuts}:${secunds}`
-
-    return hours
-}
-
-function show(){
-    var hour = hours()
-    var watch = window.document.querySelector('#resposta')
-    watch.innerHTML = hour
-}
-var controls = {
-    active() {
-            var time = setInterval(()=>{
-                show()
-            },1000)
-            return time 
-    }
-}
-
-console.log(active)
+var watch = window.document.getElementById('resposta')
+var time;
 
 function stop(){
+    clearInterval(time)
+}
+function active(){
+    time = setInterval(()=>{
+        somar()
+    },1000)
     
 }
+
+function somar (){
+
+    seconds += 1
+    if(seconds > 60){
+        seconds = 0
+        minuts += 1
+    }
+    if(minuts > 60){
+        minuts = 0
+        hour = 0
+    }
+    
+
+    watch.innerHTML = `${minuts}:${seconds}`
+  
+}
+function refresh(){
+    seconds = 0
+    minuts =  0
+}
+
 
 
 
