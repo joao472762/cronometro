@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cronomêtro</title>
+    <link rel="shortcut icon" href="imagens/cronometro.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,12 +22,14 @@
         </div>
 
         <div id="interaction">
-            <input type="button" value="começar" onclick="active()"> 
+            <input type="button" value="começar" onclick="controls.active()"> 
 
-            <input type="button" value="parar" onclick="stop()">
+            <input type="button" value="parar" onclick="controls.stop()">
             
-            <input type="button" value="reiniciar" onclick="refresh()"> 
+            <input type="button" value="reiniciar" onclick="controls.refresh()"> 
         </div>
+        <ol id="list">
+        </ol>
     </main>
     <script src="script.js"></script>
 </body>
