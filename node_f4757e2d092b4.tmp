@@ -1,5 +1,5 @@
 function sleep(value){
-
+  
   var time = setInterval(()=>{
     console.log(value)
   },1000)
@@ -10,6 +10,6 @@ function sleep(value){
 }
 
 for(var cont = 0; cont <= 10; cont++){
-  console.log(`o número é ${cont
+  console.log(`o número é ${cont}`)
   sleep(cont)
 }
