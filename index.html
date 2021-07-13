@@ -21,7 +21,11 @@
         </div>
 
         <div id="interaction">
-            <input type="button" value="começar"> <input type="button" value="parar"> <input type="button" value="reiniciar"> 
+            <input type="button" value="começar" onclick="controls.active()"> 
+
+            <input type="button" value="parar" onclick="controls.stop()">
+            
+            <input type="button" value="reiniciar"> 
         </div>
     </main>
     <script src="script.js"></script>

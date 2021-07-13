@@ -1,11 +1,33 @@
-var time = new Date()
-var segundos = time.getSeconds()
-console.log(segundos)
+function hours(){
+    var Time = new Date()
+    var hour = Time.getHours()
+    var minuts = Time.getMinutes()
+    var secunds = Time.getSeconds()
 
-var tempo = document.querySelector('#resposta')
+    var hours = `${hour}:${minuts}:${secunds}`
 
-for(var contador= 0; contador <= 60; contador++){
-    timer.start()
-    serTimeout(stop,3000)
-    tempo.innerHTML= segundos + contador
+    return hours
 }
+
+function show(){
+    var hour = hours()
+    var watch = window.document.querySelector('#resposta')
+    watch.innerHTML = hour
+}
+var controls = {
+    active() {
+            var time = setInterval(()=>{
+                show()
+            },1000)
+            return time 
+    }
+}
+
+console.log(active)
+
+function stop(){
+    
+}
+
+
+
