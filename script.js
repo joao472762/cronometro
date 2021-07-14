@@ -1,6 +1,7 @@
 var seconds = 0
 var minuts = 0
 var hour = 0
+var milleseconds = 0
 var time;
 
 var watch = window.document.getElementById('resposta')
@@ -13,11 +14,14 @@ var controls = {
     active(){
         time = setInterval(()=>{
             Time()
-        },1000)
+        },16.5)
         
     },
     refresh(){
-        var Time = seconds < 10 ? `${minuts}:${"0" + seconds}`: `${minuts}:${seconds}`
+        var mili =  milleseconds
+        if(mili < 10 )
+        mili = "0" + mili
+        var Time = seconds < 10 ? `${minuts}:${"0" + seconds}:${mili}`: `${minuts}:${seconds}:${mili}`
         createLi(Time)
         hour = 0
         minuts = 0
@@ -31,17 +35,23 @@ function stop(){
 
 
 function Time (){
-
-    seconds += 1
+    milleseconds +=1
+    if(milleseconds > 60){
+        milleseconds = 0
+        seconds += 1
+    }
     if(seconds > 60){
         seconds = 0
         minuts += 1
     }
-    if(minuts > 60){
-        minuts = 0
-        hour = 0
+    if(minuts >60){
+        minuts = 0 
+        hour += 1
     }
-     seconds < 10 ? watch.innerHTML = `${minuts}:${ "0" + seconds}` : watch.innerHTML = `${minuts}:${ seconds}`
+    var mili =  milleseconds
+    if(mili < 10 )
+    mili = "0" + mili
+     seconds < 10 ? watch.innerHTML = `${minuts}:${ "0" + seconds}:${mili}`: watch.innerHTML = `${minuts}:${ seconds}:${mili}`
 
   
 }
